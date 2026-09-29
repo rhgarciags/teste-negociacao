@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Teste de Negociação</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -25,7 +32,7 @@ body {
 }
 
 .card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 14px;
     padding: 30px;
     box-shadow: 0 5px 25px rgba(0,0,0,.08);
@@ -51,12 +58,18 @@ label.titulo {
     margin-bottom: 8px;
 }
 
-input[type=text] {
+input[type="text"] {
     width: 100%;
     padding: 14px;
     border: 1px solid #d1d5db;
     border-radius: 8px;
     font-size: 16px;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.1);
 }
 
 .questao {
@@ -84,7 +97,7 @@ input[type=text] {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #fff;
+    background: #ffffff;
     border: 1px solid #d1d5db;
     border-radius: 8px;
     padding: 12px;
@@ -114,7 +127,7 @@ input[type=text] {
     border: 0;
     border-radius: 8px;
     background: #2563eb;
-    color: #fff;
+    color: #ffffff;
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
@@ -182,120 +195,153 @@ input[type=text] {
     .questao {
         padding: 16px;
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <!-- =====================================================
-         FORMULÁRIO
-    ====================================================== -->
 
-    <div class="card" id="formulario">
+<!-- =====================================================
+     FORMULÁRIO
+====================================================== -->
 
-        <h1>Teste de Negociação</h1>
+<div class="card" id="formulario">
 
-        <p class="descricao">
-            Responda às questões de acordo com o seu comportamento habitual durante negociações.
-        </p>
+    <h1>Teste de Negociação</h1>
 
-        <p class="descricao">
-            Não existem respostas certas ou erradas.
-            Escolha a alternativa que melhor representa você.
-        </p>
+    <p class="descricao">
+        Responda às questões de acordo com o seu comportamento habitual durante negociações.
+    </p>
 
-
-        <!-- NOME -->
-
-        <div class="campo-nome">
-
-            <label class="titulo" for="nome">
-                Nome do candidato
-            </label>
-
-            <input
-                type="text"
-                id="nome"
-                placeholder="Digite seu nome completo"
-                autocomplete="name"
-                maxlength="150"
-            >
-
-        </div>
+    <p class="descricao">
+        Não existem respostas certas ou erradas.
+        Escolha a alternativa que melhor representa você.
+    </p>
 
 
-        <!-- QUESTÕES -->
+    <!-- NOME -->
 
-        <div id="questoes"></div>
+    <div class="campo-nome">
 
-
-        <!-- MENSAGENS -->
-
-        <div id="erro" class="erro"></div>
-
-        <div id="mensagemSucesso" class="sucesso"></div>
-
-
-        <!-- BOTÃO -->
-
-        <button
-            type="button"
-            class="botao-finalizar"
-            id="botaoFinalizar"
-            onclick="finalizarTeste()"
+        <label
+            class="titulo"
+            for="nome"
         >
-            Finalizar teste
-        </button>
+            Nome do candidato
+        </label>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Digite seu nome completo"
+            autocomplete="name"
+            maxlength="150"
+        >
 
     </div>
 
 
-    <!-- =====================================================
-         RESULTADO FINAL
-    ====================================================== -->
+    <!-- QUESTÕES -->
 
-    <div class="card resultado" id="resultado">
+    <div id="questoes"></div>
 
-        <h1>Teste concluído</h1>
 
-        <div class="resultado-sucesso">
-            Suas respostas foram registradas.
-        </div>
+    <!-- MENSAGENS -->
 
-        <p class="resultado-texto">
-            Obrigado por participar do Teste de Negociação.
-        </p>
+    <div
+        id="erro"
+        class="erro"
+    ></div>
 
-        <p class="resultado-texto">
-            O resultado desta avaliação será analisado posteriormente.
-        </p>
+    <div
+        id="mensagemSucesso"
+        class="sucesso"
+    ></div>
 
+
+    <!-- BOTÃO -->
+
+    <button
+        type="button"
+        class="botao-finalizar"
+        id="botaoFinalizar"
+        onclick="finalizarTeste()"
+    >
+        Finalizar teste
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     RESULTADO
+====================================================== -->
+
+<div
+    class="card resultado"
+    id="resultado"
+>
+
+    <h1>Teste concluído</h1>
+
+    <div class="resultado-sucesso">
+        Suas respostas foram registradas.
     </div>
 
+    <p class="resultado-texto">
+        Obrigado por participar do Teste de Negociação.
+    </p>
 
-    <!-- ASSINATURA -->
+    <p class="resultado-texto">
+        O resultado desta avaliação será analisado posteriormente.
+    </p>
 
-    <div class="assinatura">
-        Desenvolvido por : Wemerson Leal © 2026 - RH Garcia Supermercados.
-    </div>
+</div>
+
+
+<!-- ASSINATURA -->
+
+<div class="assinatura">
+    Desenvolvido por : Wemerson Leal © 2026 - RH Garcia Supermercados.
+</div>
+
 
 </div>
 
 
 <script>
 
+
 /* ============================================================
    CONFIGURAÇÃO DO SUPABASE
 ============================================================ */
 
+/*
+    PROJETO:
+    https://rfzauftsgqidtzwtdjlp.supabase.co
+
+    A URL abaixo é a URL BASE do projeto.
+    O /rest/v1 será acrescentado automaticamente.
+*/
+
 const SUPABASE_URL =
-    "https://wasgpxeorsmhrryrnoih.supabase.co";
+    "https://rfzauftsgqidtzwtdjlp.supabase.co";
+
+
+/*
+    SUA PUBLISHABLE KEY
+*/
 
 const SUPABASE_KEY =
-    "sb_publishable_9rZ70PM0VmmkQSUfd2AiPw_tJf2XU9_";
+    "sb_publishable_QAHvlE6BbMgm5nc9WzYJEQ_7f_YvkrU";
 
 
 /* ============================================================
@@ -368,182 +414,212 @@ const perguntas = [
 
 
 /* ============================================================
-   CRIA AS QUESTÕES AUTOMATICAMENTE
+   CRIAÇÃO DAS QUESTÕES
 ============================================================ */
 
 const containerQuestoes =
     document.getElementById("questoes");
 
 
-perguntas.forEach((pergunta, indice) => {
+perguntas.forEach(
+    (pergunta, indice) => {
 
-    const numero = indice + 1;
-
-    const bloco =
-        document.createElement("div");
-
-    bloco.className = "questao";
-
-    bloco.innerHTML = `
-
-        <div class="numero">
-            Questão ${numero}
-        </div>
-
-        <div class="pergunta">
-            ${pergunta}
-        </div>
-
-        <label class="alternativa">
-
-            <input
-                type="radio"
-                name="q${numero}"
-                value="3"
-            >
-
-            Sempre
-
-        </label>
+        const numero =
+            indice + 1;
 
 
-        <label class="alternativa">
-
-            <input
-                type="radio"
-                name="q${numero}"
-                value="2"
-            >
-
-            Às vezes
-
-        </label>
+        const bloco =
+            document.createElement("div");
 
 
-        <label class="alternativa">
+        bloco.className =
+            "questao";
 
-            <input
-                type="radio"
-                name="q${numero}"
-                value="1"
-            >
 
-            Raramente
+        bloco.innerHTML = `
 
-        </label>
+            <div class="numero">
+                Questão ${numero}
+            </div>
 
-    `;
+            <div class="pergunta">
+                ${pergunta}
+            </div>
 
-    containerQuestoes.appendChild(bloco);
+            <label class="alternativa">
 
-});
+                <input
+                    type="radio"
+                    name="q${numero}"
+                    value="3"
+                >
+
+                Sempre
+
+            </label>
+
+            <label class="alternativa">
+
+                <input
+                    type="radio"
+                    name="q${numero}"
+                    value="2"
+                >
+
+                Às vezes
+
+            </label>
+
+            <label class="alternativa">
+
+                <input
+                    type="radio"
+                    name="q${numero}"
+                    value="1"
+                >
+
+                Raramente
+
+            </label>
+
+        `;
+
+
+        containerQuestoes
+            .appendChild(bloco);
+
+    }
+);
 
 
 /* ============================================================
-   ENVIO PARA O SUPABASE
+   FUNÇÃO PARA ENVIAR AO SUPABASE
 ============================================================ */
 
 async function enviarSupabase(
     tabela,
-    dados,
-    prefer = "return=minimal"
+    dados
 ) {
 
-    const resposta = await fetch(
 
-        `${SUPABASE_URL}/rest/v1/${tabela}`,
+    /*
+        A URL FINAL ficará:
 
-        {
+        https://rfzauftsgqidtzwtdjlp.supabase.co/rest/v1/candidates
 
-            method: "POST",
+        ou
 
-            headers: {
+        https://rfzauftsgqidtzwtdjlp.supabase.co/rest/v1/attempts
+    */
 
-                "apikey": SUPABASE_KEY,
+    const url =
+        `${SUPABASE_URL}/rest/v1/${tabela}`;
 
-                "Authorization":
-                    `Bearer ${SUPABASE_KEY}`,
 
-                "Content-Type":
-                    "application/json",
-
-                "Prefer": prefer
-
-            },
-
-            body: JSON.stringify(dados)
-
-        }
-
+    console.log(
+        "Enviando para:",
+        url
     );
+
+
+    const resposta =
+        await fetch(
+            url,
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "apikey":
+                        SUPABASE_KEY,
+
+                    "Authorization":
+                        `Bearer ${SUPABASE_KEY}`,
+
+                    "Content-Type":
+                        "application/json",
+
+                    "Prefer":
+                        "return=minimal"
+
+                },
+
+                body:
+                    JSON.stringify(dados)
+
+            }
+        );
 
 
     const texto =
         await resposta.text();
 
 
-    let corpo = null;
+    console.log(
+        "Status Supabase:",
+        resposta.status
+    );
 
 
-    try {
-
-        corpo =
-            texto
-                ? JSON.parse(texto)
-                : null;
-
-    } catch {
-
-        corpo = texto;
-
-    }
+    console.log(
+        "Resposta Supabase:",
+        texto
+    );
 
 
     if (!resposta.ok) {
 
-        const detalhe =
 
-            (corpo && corpo.message) ||
-
-            (corpo && corpo.hint) ||
-
-            (corpo && corpo.details) ||
-
-            (corpo && corpo.error_description) ||
-
-            (
-                typeof corpo === "string"
-                    ? corpo
-                    : ""
-            ) ||
-
-            `HTTP ${resposta.status}`;
+        let mensagem =
+            texto;
 
 
-        throw new Error(detalhe);
+        try {
+
+            const json =
+                JSON.parse(texto);
+
+
+            mensagem =
+                json.message ||
+                json.error ||
+                json.details ||
+                json.hint ||
+                texto;
+
+        }
+
+        catch (e) {
+
+            // Mantém texto original
+
+        }
+
+
+        throw new Error(
+            `HTTP ${resposta.status}: ${mensagem}`
+        );
 
     }
 
 
-    return corpo;
+    return texto;
 
 }
-
-
-/* ============================================================
-   CONTROLE DE ENVIO
-============================================================ */
-
-let enviando = false;
 
 
 /* ============================================================
    FINALIZAR TESTE
 ============================================================ */
 
+let enviando = false;
+
+
 async function finalizarTeste() {
 
-    /* Evita duplo clique */
+
+    /* Evita envio duplicado */
 
     if (enviando) {
         return;
@@ -553,17 +629,24 @@ async function finalizarTeste() {
     const nomeInput =
         document.getElementById("nome");
 
+
     const erro =
         document.getElementById("erro");
 
+
     const sucesso =
-        document.getElementById("mensagemSucesso");
+        document.getElementById(
+            "mensagemSucesso"
+        );
+
 
     const botao =
-        document.getElementById("botaoFinalizar");
+        document.getElementById(
+            "botaoFinalizar"
+        );
 
 
-    /* Limpa mensagens anteriores */
+    /* Limpa mensagens */
 
     erro.textContent = "";
 
@@ -603,7 +686,7 @@ async function finalizarTeste() {
 
 
     /* ========================================================
-       COLETA RESPOSTAS
+       COLETA AS RESPOSTAS
     ======================================================== */
 
     const respostas = {};
@@ -612,10 +695,15 @@ async function finalizarTeste() {
 
 
     /* ========================================================
-       VERIFICA AS 30 QUESTÕES
+       VERIFICA 30 QUESTÕES
     ======================================================== */
 
-    for (let i = 1; i <= 30; i++) {
+    for (
+        let i = 1;
+        i <= 30;
+        i++
+    ) {
+
 
         const resposta =
             document.querySelector(
@@ -623,9 +711,8 @@ async function finalizarTeste() {
             );
 
 
-        /* Se não respondeu */
-
         if (!resposta) {
+
 
             erro.textContent =
                 `Responda todas as 30 questões antes de finalizar.\n\nFalta responder a questão ${i}.`;
@@ -634,16 +721,20 @@ async function finalizarTeste() {
             const questao =
                 document.querySelector(
                     `input[name="q${i}"]`
-                )?.closest(".questao");
+                )?.closest(
+                    ".questao"
+                );
 
 
             if (questao) {
 
                 questao.scrollIntoView({
 
-                    behavior: "smooth",
+                    behavior:
+                        "smooth",
 
-                    block: "center"
+                    block:
+                        "center"
 
                 });
 
@@ -656,12 +747,14 @@ async function finalizarTeste() {
 
 
         const valor =
-            Number(resposta.value);
+            Number(
+                resposta.value
+            );
 
 
-        /* Guarda a resposta em texto */
-
-        respostas[String(i)] =
+        respostas[
+            String(i)
+        ] =
 
             valor === 3
                 ? "Sempre"
@@ -670,9 +763,8 @@ async function finalizarTeste() {
                     : "Raramente";
 
 
-        /* Soma pontuação */
-
-        pontuacao += valor;
+        pontuacao +=
+            valor;
 
     }
 
@@ -712,7 +804,9 @@ async function finalizarTeste() {
 
     enviando = true;
 
+
     botao.disabled = true;
+
 
     botao.textContent =
         "Salvando respostas...";
@@ -720,17 +814,29 @@ async function finalizarTeste() {
 
     try {
 
+
         /* ====================================================
-           GERA UUID DO CANDIDATO
+           GERA ID DO CANDIDATO
         ==================================================== */
 
         const candidateId =
             crypto.randomUUID();
 
 
+        console.log(
+            "Candidate ID:",
+            candidateId
+        );
+
+
         /* ====================================================
            1. SALVA CANDIDATO
         ==================================================== */
+
+        console.log(
+            "Salvando candidato..."
+        );
+
 
         await enviarSupabase(
 
@@ -738,20 +844,30 @@ async function finalizarTeste() {
 
             {
 
-                id: candidateId,
+                id:
+                    candidateId,
 
-                name: nome
+                name:
+                    nome
 
-            },
+            }
 
-            "return=minimal"
+        );
 
+
+        console.log(
+            "Candidato salvo!"
         );
 
 
         /* ====================================================
            2. SALVA RESULTADO
         ==================================================== */
+
+        console.log(
+            "Salvando resultado..."
+        );
+
 
         await enviarSupabase(
 
@@ -774,50 +890,68 @@ async function finalizarTeste() {
                 answers:
                     respostas
 
-            },
-
-            "return=minimal"
+            }
 
         );
 
 
+        console.log(
+            "Resultado salvo!"
+        );
+
+
         /* ====================================================
-           SUCESSO
+           3. MOSTRA TELA DE SUCESSO
         ==================================================== */
 
         document
-            .getElementById("formulario")
-            .style.display = "none";
+            .getElementById(
+                "formulario"
+            )
+            .style.display =
+                "none";
 
 
         document
-            .getElementById("resultado")
-            .style.display = "block";
+            .getElementById(
+                "resultado"
+            )
+            .style.display =
+                "block";
 
 
         window.scrollTo({
 
             top: 0,
 
-            behavior: "smooth"
+            behavior:
+                "smooth"
 
         });
 
 
     }
 
+
     catch (erroEnvio) {
 
 
-        /* Mostra erro no console */
+        console.error(
+            "================================"
+        );
 
         console.error(
-            "ERRO REAL DO SUPABASE:",
+            "ERRO AO SALVAR NO SUPABASE"
+        );
+
+        console.error(
             erroEnvio
         );
 
+        console.error(
+            "================================"
+        );
 
-        /* Mostra erro para o usuário */
 
         erro.textContent =
 
@@ -828,14 +962,16 @@ async function finalizarTeste() {
             erroEnvio.message;
 
 
-        /* Libera novamente o botão */
+        botao.disabled =
+            false;
 
-        botao.disabled = false;
 
         botao.textContent =
             "Finalizar teste";
 
-        enviando = false;
+
+        enviando =
+            false;
 
     }
 
@@ -844,4 +980,5 @@ async function finalizarTeste() {
 </script>
 
 </body>
+
 </html>
